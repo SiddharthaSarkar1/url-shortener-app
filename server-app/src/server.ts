@@ -3,6 +3,8 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./config/dbConfig";
 
+import shortUrl from "./routes/shortUrl";
+
 dotenv.config();
 connectDb();
 
@@ -19,7 +21,7 @@ app.use(
   })
 );
 
-
+app.use("/api/", shortUrl);
 
 app.listen(PORT, () => {
   console.log(`Server started successfully on port: ${PORT}.`);
